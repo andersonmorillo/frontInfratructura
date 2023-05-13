@@ -1,0 +1,44 @@
+
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Citas del usuario</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Area</th>
+                                <th>Medico</th>
+                                <th>Hospital</th>
+                                <th>Fecha</th>
+                                <th class="text-nowrap">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cita of citas;let i = index">
+                                <td>{{cita.area}}</td>
+                                <td>{{medico[i]}}</td>
+                                <td>{{hospital[i]}}</td>
+                                <td>{{cita.fecha | date:'shortDate'}}</td>
+                                <td class="text-nowrap">
+                                    <a  (click)="cancelarCita(cita._id)" data-toggle="tooltip" data-original-title="Cancelar cita" class="cursor"> <i class="fa fa-close text-danger"></i> </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

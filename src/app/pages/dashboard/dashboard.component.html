@@ -1,0 +1,64 @@
+<p class="mt-4">¿Qué quieres hacer hoy {{_userService.user.nombre}}?</p>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-2" *ngFor="let item of menu">
+        <div class="card text-bg-primary mt-2" style="max-width: 12rem;border-radius: 10px;width: 50rem;">
+            <div class="card-body" style="text-align: center;">
+                <a [routerLink]="item.url" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact:true}"><h5 class="card-title">{{item.title}}</h5></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex justify-content-center"> 
+                            <img [src]="_userService.user.img | imagen" class="img-circle" width="150">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="card-title m-t-10">{{_usuarioService.user.nombre}}</h4>
+                        <h6 class="card-subtitle">{{role}}</h6>
+                        <h6 class="card-subtitle">{{_usuarioService.user.email}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card" style="height:18rem">
+            <div class="card-body">
+                <h4 class="card-title">Nuestros hospitales</h4>
+                <h6 class="card-subtitle">Estos son algunos de los hospitales que tenemos disponibles para ti.</h6>
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators2" data-slide-to="0" class=""></li>
+                        <li data-target="#carouselExampleIndicators2" data-slide-to="1" class=""></li>
+                        <li data-target="#carouselExampleIndicators2" data-slide-to="2" class="active"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img style="width:100%;" [src]="imagenes[2] | imagen">
+                        </div>
+                        <div class="carousel-item" *ngFor="let img of imagenes">
+                            <img style="width:100%;" [src]="img | imagen">
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

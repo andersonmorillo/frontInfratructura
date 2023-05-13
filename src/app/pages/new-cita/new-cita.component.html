@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-body">
+        <h3 class="box-title">Por favor ingrese los datos</h3>
+        <hr class="m-t-0 m-b-40">
+        <form action="" [formGroup]="citaForm" (submit)="guardarCita()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Area de la cita</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" formControlName="area">
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Medico</label>
+                        <div class="col-md-9">
+                            <select class="form-control custom-select" formControlName="medico">
+                                <option  *ngFor="let medico of medicos" [value]="medico._id">{{medico.nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Hospital</label>
+                        <div class="col-md-9">
+                            <select class="form-control custom-select" formControlName="hospital">
+                                <option  *ngFor="let hospital of hospitales" [value]="hospital._id">{{hospital.nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Fecha</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control" placeholder="dd/mm/yyyy" formControlName="fecha">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <button class="btn btn-outline-info">Agendar cita</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
