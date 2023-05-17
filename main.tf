@@ -57,7 +57,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
       "portMappings": [
         {
           "containerPort": 3000,
-          "hostPort": 3000,
+          "hostPort": 0,
           "protocol": "tcp"
         }
       ],
@@ -163,9 +163,9 @@ resource "aws_ecs_service" "my_first_service" {
 
 resource "aws_security_group" "service_security_group" {
   ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
+    from_port = 3000
+    to_port   = 3000
+    protocol  = "tcp"
     # Only allowing traffic in from the load balancer security group
     security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
   }
