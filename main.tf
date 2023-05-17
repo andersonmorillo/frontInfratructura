@@ -12,6 +12,6 @@ resource "aws_s3_bucket" "static_app_bucket" {
 }
 
 output "bucket_name" {
-  value = aws_s3_bucket.static_app_bucket.name
+  value = aws_s3_bucket.static_app_bucket.bucket
 }
 
