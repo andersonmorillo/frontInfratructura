@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "static_app_bucket" {
-  bucket = "GestiondehospitalesFrontend"  # Cambia el nombre del bucket según tus necesidades
+  bucket = "gestiondehospitales"  # Cambia el nombre del bucket según tus necesidades
 
   # Configuraciones adicionales del bucket de S3 si es necesario
   tags = {
