@@ -35,11 +35,11 @@ resource "aws_default_vpc" "default_vpc" {
 
 # Providing a reference to our default subnets
 resource "aws_default_subnet" "default_subnet_a" {
-  availability_zone = "us-east-1a"
+  availability_zone = "us-west-1a"
 }
 
 resource "aws_default_subnet" "default_subnet_b" {
-  availability_zone = "us-east-1b"
+  availability_zone = "us-west-1b"
 }
 
 resource "aws_ecs_cluster" "my_cluster" {
@@ -163,9 +163,9 @@ resource "aws_ecs_service" "my_first_service" {
 
 resource "aws_security_group" "service_security_group" {
   ingress {
-    from_port = 3000
-    to_port   = 3000
-    protocol  = "tcp"
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
     # Only allowing traffic in from the load balancer security group
     security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
   }
