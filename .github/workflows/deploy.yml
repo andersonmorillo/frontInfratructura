@@ -60,5 +60,5 @@ jobs:
         with:
           region: us-east-1
           bucket: "gestiondehospitales"
-          source: dist/adminpro
+          source: dist/
           target: ''
