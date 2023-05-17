@@ -31,7 +31,7 @@ jobs:
 
       - name: Get bucket name
         run: |
-          export BUCKET_NAME=$(terraform output -raw bucket_name)
+          export BUCKET_NAME=$(terraform output bucket_name)
           echo "BUCKET_NAME=$BUCKET_NAME" >> $GITHUB_ENV
 
       - name: Set up Node.js
