@@ -18,6 +18,6 @@ ADD ./config/default.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=build /app/dist/adminpro /var/www/app
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["nginx","-g","daemon off;"]
