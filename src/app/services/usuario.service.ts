@@ -60,10 +60,10 @@ export class UsuarioService {
     });
   }
 
-  validarToken(): Observable<boolean> {
+  validarToken(id:string): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
     return this.http
-      .get(`${this.base_url}/login/renew`,this.headers)
+      .get(`${this.base_url}/login/renew/${id}`,this.headers)
       .pipe(
         tap((resp: any) => {
           const {nombre,email,google,role,img,uid} = resp.user;

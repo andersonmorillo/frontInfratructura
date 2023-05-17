@@ -9,14 +9,14 @@ import { UsuarioService } from '../services/usuario.service';
 export class AuthGuard implements CanActivate,CanLoad {
   constructor(private usuarioService:UsuarioService, private router:Router){}
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.usuarioService.validarToken().pipe(tap(estaAutenticado => {
+    return this.usuarioService.validarToken(this.usuarioService.user.uid).pipe(tap(estaAutenticado => {
       if(!estaAutenticado){
         this.router.navigateByUrl('/login');
       }
     }))
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    return this.usuarioService.validarToken().pipe(tap(estaAutenticado => {
+    return this.usuarioService.validarToken(this.usuarioService.user.uid).pipe(tap(estaAutenticado => {
       if(!estaAutenticado){
         this.router.navigateByUrl('/login');
       }
