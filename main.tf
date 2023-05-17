@@ -35,11 +35,11 @@ resource "aws_default_vpc" "default_vpc" {
 
 # Providing a reference to our default subnets
 resource "aws_default_subnet" "default_subnet_a" {
-  availability_zone = "us-west-1a"
+  availability_zone = "us-east-1a"
 }
 
 resource "aws_default_subnet" "default_subnet_b" {
-  availability_zone = "us-west-1b"
+  availability_zone = "us-east-1b"
 }
 
 resource "aws_ecs_cluster" "my_cluster" {
