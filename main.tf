@@ -57,7 +57,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
   [
     {
       "name": "frontGrupo02",
-      "image": "ivanzapata2126/frontend:${var.imagebuild}",
+      "image": "${var.name}:${var.imagebuild}",
       "essential": true,
       "portMappings": [
         {
