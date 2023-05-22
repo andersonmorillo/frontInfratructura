@@ -26,6 +26,11 @@ variable "imagebuild" {
   description = "the latest image build version"
 }
 
+variable "name" {
+  type = string
+  description = "the latest image build version"
+}
+
 
 # Providing a reference to our default VPC
 resource "aws_default_vpc" "default_vpc" {
