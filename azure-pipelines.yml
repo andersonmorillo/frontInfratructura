@@ -25,7 +25,7 @@ stages: # step 1
     - task: Docker@2
       inputs:
         containerRegistry: 'Docker'
-        repository: '$(NAME_BUILD)3'
+        repository: '$(NAME_BUILD)'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: |
