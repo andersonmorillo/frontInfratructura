@@ -56,7 +56,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
   container_definitions    = <<DEFINITION
   [
     {
-      "name": "${var.name}:${var.imagebuild}",
+      "name": "frontGrupo0",
       "image": "${var.name}:${var.imagebuild}",
       "essential": true,
       "portMappings": [
